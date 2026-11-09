@@ -1,0 +1,107 @@
+name: Android
+
+# Builds and tests the Android app on every push and pull request.
+# A tag like v0.2.0 also publishes the signed release APK as a GitHub Release.
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+    paths-ignore: ['design/**', '**.md']
+  pull_request:
+    paths-ignore: ['design/**', '**.md']
+  workflow_dispatch:
+
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v6
+
+      # The build signs release APKs with ../.local/release-signing/keystore.properties when it exists
+      # (see app/build.gradle.kts). Without the secrets (e.g. pull requests from forks) the release
+      # APK comes out unsigned and the run still checks that everything builds.
+      - name: Restore release signing key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+          STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::warning::No signing secrets; the release APK will be unsigned."
+            exit 0
+          fi
+          dir=../.local/release-signing
+          mkdir -p "$dir"
+          echo "$KEYSTORE_BASE64" | base64 --decode > "$dir/release.jks"
+          {
+            echo "storeFile=release.jks"
+            echo "storePassword=$STORE_PASSWORD"
+            echo "keyAlias=$KEY_ALIAS"
+            echo "keyPassword=$KEY_PASSWORD"
+          } > "$dir/keystore.properties"
+
+      - name: Test and build
+        run: ./gradlew testDebugUnitTest assembleDebug assembleRelease
+
+      - name: Name the APKs
+        id: apk
+        run: |
+          version=$(grep -m1 'versionName' app/build.gradle.kts | sed -E 's/.*"(.*)".*/\1/')
+          sha=$(git rev-parse --short HEAD)
+          mkdir -p dist
+          release=app/build/outputs/apk/release/app-release.apk
+          [ -f "$release" ] || release=app/build/outputs/apk/release/app-release-unsigned.apk
+          cp "$release" "dist/wallpaper-shift-$version-$sha.apk"
+          cp app/build/outputs/apk/debug/app-debug.apk "dist/wallpaper-shift-$version-$sha-debug.apk"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          ls -l dist
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: wallpaper-shift-${{ steps.apk.outputs.version }}-${{ github.run_number }}
+          path: android/dist/*.apk
+          if-no-files-found: error
+
+      - name: Upload test reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-reports
+          path: android/app/build/reports/tests/
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          path: dist
+          merge-multiple: true
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # The signed release APK only; the debug build stays in the run's artifacts.
+          gh release create "$GITHUB_REF_NAME" $(ls dist/*.apk | grep -v -- '-debug.apk$') \
+            --repo "$GITHUB_REPOSITORY" --title "$GITHUB_REF_NAME" --generate-notes

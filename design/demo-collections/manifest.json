@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "status": "design-assets",
+  "generator": "built-in image_gen",
+  "aspectRatio": "9:19.5",
+  "collections": [
+    {
+      "id": "seaside-station",
+      "name": "海边小站",
+      "assetDirectory": "../../shared/demo-collections/seaside-station/",
+      "defaultBlur": 10,
+      "frames": [
+        {
+          "file": "01-dawn.jpg",
+          "label": "黎明",
+          "start": "05:00"
+        },
+        {
+          "file": "02-morning.jpg",
+          "label": "早晨",
+          "start": "07:30"
+        },
+        {
+          "file": "03-noon.jpg",
+          "label": "正午",
+          "start": "11:00"
+        },
+        {
+          "file": "04-afternoon.jpg",
+          "label": "午后",
+          "start": "14:00"
+        },
+        {
+          "file": "05-sunset.jpg",
+          "label": "日落",
+          "start": "17:30"
+        },
+        {
+          "file": "06-night.jpg",
+          "label": "夜晚",
+          "start": "19:30"
+        }
+      ]
+    },
+    {
+      "id": "window-day",
+      "name": "窗边日常",
+      "assetDirectory": "../../shared/demo-collections/window-day/",
+      "defaultBlur": 10,
+      "frames": [
+        {
+          "file": "01-dawn.jpg",
+          "label": "黎明",
+          "start": "05:00"
+        },
+        {
+          "file": "02-morning.jpg",
+          "label": "早晨",
+          "start": "07:30"
+        },
+        {
+          "file": "03-noon.jpg",
+          "label": "正午",
+          "start": "11:00"
+        },
+        {
+          "file": "04-afternoon.jpg",
+          "label": "午后",
+          "start": "14:00"
+        },
+        {
+          "file": "05-sunset.jpg",
+          "label": "日落",
+          "start": "17:30"
+        },
+        {
+          "file": "06-night.jpg",
+          "label": "夜晚",
+          "start": "19:30"
+        }
+      ]
+    },
+    {
+      "id": "mountain-lake",
+      "name": "山湖之间",
+      "assetDirectory": "../../shared/demo-collections/mountain-lake/",
+      "defaultBlur": 10,
+      "frames": [
+        {
+          "file": "01-dawn.jpg",
+          "label": "黎明",
+          "start": "05:00"
+        },
+        {
+          "file": "02-morning.jpg",
+          "label": "早晨",
+          "start": "07:30"
+        },
+        {
+          "file": "03-noon.jpg",
+          "label": "正午",
+          "start": "11:00"
+        },
+        {
+          "file": "04-afternoon.jpg",
+          "label": "午后",
+          "start": "14:00"
+        },
+        {
+          "file": "05-sunset.jpg",
+          "label": "日落",
+          "start": "17:30"
+        },
+        {
+          "file": "06-night.jpg",
+          "label": "夜晚",
+          "start": "19:30"
+        }
+      ]
+    }
+  ]
+}

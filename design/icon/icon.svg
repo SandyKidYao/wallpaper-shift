@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72" width="1024" height="1024">
+  <defs><linearGradient id="sky" gradientUnits="userSpaceOnUse" x1="54" y1="0" x2="54" y2="108"><stop offset="0" stop-color="#232B66"/><stop offset="0.5" stop-color="#7B4F92"/><stop offset="1" stop-color="#F4A261"/></linearGradient><clipPath id="above-horizon"><rect x="37" y="28" width="34" height="32"/></clipPath></defs>
+  <rect x="0" y="0" width="108" height="108" fill="url(#sky)"/>
+  <!-- Phone frame -->
+  <path d="M43,28h22a6,6 0 0 1 6,6v40a6,6 0 0 1 -6,6h-22a6,6 0 0 1 -6,-6v-40a6,6 0 0 1 6,-6z" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+  <!-- Half sun above the horizon -->
+  <path d="M44,60a10,10 0 1 0 20,0a10,10 0 1 0 -20,0z" fill="#FFFFFF" clip-path="url(#above-horizon)"/>
+  <!-- Horizon and its reflection -->
+  <path d="M43,64H65" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M47,69.5H61" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

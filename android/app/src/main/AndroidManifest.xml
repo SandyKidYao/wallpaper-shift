@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <!-- OEM "autostart" settings pages we may link to (see AutostartSettings). -->
+    <queries>
+        <intent>
+            <action android:name="com.iqoo.secure.BGSTARTUPMANAGER" />
+        </intent>
+        <package android:name="com.vivo.permissionmanager" />
+        <package android:name="com.miui.securitycenter" />
+        <package android:name="com.coloros.safecenter" />
+        <package android:name="com.oplus.safecenter" />
+        <package android:name="com.huawei.systemmanager" />
+        <package android:name="com.hihonor.systemmanager" />
+    </queries>
+
+    <application
+        android:name=".WallpaperShiftApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WallpaperShift">
+        <!-- singleTask: a zip opened from another app (e.g. WeChat) imports in our own task, not on top of theirs. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 「用其他应用打开」 / share a wallpaper-set package (a zip). -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/zip" />
+                <data android:mimeType="application/x-zip-compressed" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".schedule.SwitchAlarmReceiver" android:exported="false" />
+        <receiver android:name=".schedule.RestoreScheduleReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

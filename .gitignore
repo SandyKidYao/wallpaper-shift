@@ -1,0 +1,25 @@
+# Temporary development files (raw assets, review pages, experiments). Never committed.
+/tmp/
+
+# Real-device screenshots show the author's own wallpapers. Kept locally, not published.
+/design/screens/
+
+# OS and editors
+.DS_Store
+.idea/
+*.iml
+
+# Android / Gradle (any platform directory)
+.gradle/
+.kotlin/
+**/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Signing material: never commit
+.local/
+*.jks
+*.keystore
+keystore.properties

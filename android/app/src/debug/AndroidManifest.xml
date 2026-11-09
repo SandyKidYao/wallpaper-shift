@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Debug builds only: lets adb drive the app for on-device testing. -->
+        <receiver android:name=".debug.DebugReceiver" android:exported="true" />
+    </application>
+</manifest>
