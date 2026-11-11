@@ -1,0 +1,428 @@
+{
+  "schemaVersion": 2,
+  "sourceHash": "dc99a7c1450ff5269363d585d83bfec416656ecab87c76ac1a6269daa87af891",
+  "generatedAt": "2026-11-11T10:54:54.580703+00:00",
+  "title": "Design System: Wallpaper Shift product page",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#272930",
+        "tonalRamp": [
+          "oklch(15% 0.0046 272.90)",
+          "oklch(26% 0.0085 272.90)",
+          "oklch(38% 0.0112 272.90)",
+          "oklch(50% 0.0132 272.90)",
+          "oklch(62% 0.0132 272.90)",
+          "oklch(74% 0.0112 272.90)",
+          "oklch(86% 0.0072 272.90)",
+          "oklch(95% 0.0026 272.90)"
+        ]
+      },
+      "charcoal": {
+        "role": "neutral",
+        "displayName": "Charcoal",
+        "canonical": "#24262c",
+        "tonalRamp": [
+          "oklch(15% 0.0040 270.96)",
+          "oklch(26% 0.0075 270.96)",
+          "oklch(38% 0.0098 270.96)",
+          "oklch(50% 0.0115 270.96)",
+          "oklch(62% 0.0115 270.96)",
+          "oklch(74% 0.0098 270.96)",
+          "oklch(86% 0.0063 270.96)",
+          "oklch(95% 0.0023 270.96)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#eae8e6",
+        "tonalRamp": [
+          "oklch(15% 0.0012 67.78)",
+          "oklch(26% 0.0022 67.78)",
+          "oklch(38% 0.0029 67.78)",
+          "oklch(50% 0.0035 67.78)",
+          "oklch(62% 0.0035 67.78)",
+          "oklch(74% 0.0029 67.78)",
+          "oklch(86% 0.0019 67.78)",
+          "oklch(95% 0.0007 67.78)"
+        ]
+      },
+      "gold": {
+        "role": "primary",
+        "displayName": "Gold",
+        "canonical": "#efbd50",
+        "tonalRamp": [
+          "oklch(15% 0.0479 83.96)",
+          "oklch(26% 0.0890 83.96)",
+          "oklch(38% 0.1163 83.96)",
+          "oklch(50% 0.1369 83.96)",
+          "oklch(62% 0.1369 83.96)",
+          "oklch(74% 0.1163 83.96)",
+          "oklch(86% 0.0753 83.96)",
+          "oklch(95% 0.0274 83.96)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "#605b60",
+        "tonalRamp": [
+          "oklch(15% 0.0035 325.73)",
+          "oklch(26% 0.0066 325.73)",
+          "oklch(38% 0.0086 325.73)",
+          "oklch(50% 0.0101 325.73)",
+          "oklch(62% 0.0101 325.73)",
+          "oklch(74% 0.0086 325.73)",
+          "oklch(86% 0.0056 325.73)",
+          "oklch(95% 0.0020 325.73)"
+        ]
+      },
+      "plum": {
+        "role": "secondary",
+        "displayName": "Plum",
+        "canonical": "#75557c",
+        "tonalRamp": [
+          "oklch(15% 0.0251 320.24)",
+          "oklch(26% 0.0466 320.24)",
+          "oklch(38% 0.0610 320.24)",
+          "oklch(50% 0.0718 320.24)",
+          "oklch(62% 0.0718 320.24)",
+          "oklch(74% 0.0610 320.24)",
+          "oklch(86% 0.0395 320.24)",
+          "oklch(95% 0.0144 320.24)"
+        ]
+      },
+      "download-gold": {
+        "role": "primary",
+        "displayName": "Download Gold",
+        "canonical": "#e5b24a",
+        "tonalRamp": [
+          "oklch(15% 0.0466 82.30)",
+          "oklch(26% 0.0865 82.30)",
+          "oklch(38% 0.1131 82.30)",
+          "oklch(50% 0.1330 82.30)",
+          "oklch(62% 0.1330 82.30)",
+          "oklch(74% 0.1131 82.30)",
+          "oklch(86% 0.0732 82.30)",
+          "oklch(95% 0.0266 82.30)"
+        ]
+      },
+      "download-hover": {
+        "role": "primary",
+        "displayName": "Download Hover",
+        "canonical": "#f0c56a",
+        "tonalRamp": [
+          "oklch(15% 0.0420 84.42)",
+          "oklch(26% 0.0780 84.42)",
+          "oklch(38% 0.1020 84.42)",
+          "oklch(50% 0.1200 84.42)",
+          "oklch(62% 0.1200 84.42)",
+          "oklch(74% 0.1020 84.42)",
+          "oklch(86% 0.0660 84.42)",
+          "oklch(95% 0.0240 84.42)"
+        ]
+      },
+      "download-ink": {
+        "role": "neutral",
+        "displayName": "Download Ink",
+        "canonical": "#252329",
+        "tonalRamp": [
+          "oklch(15% 0.0040 300.79)",
+          "oklch(26% 0.0074 300.79)",
+          "oklch(38% 0.0097 300.79)",
+          "oklch(50% 0.0114 300.79)",
+          "oklch(62% 0.0114 300.79)",
+          "oklch(74% 0.0097 300.79)",
+          "oklch(86% 0.0063 300.79)",
+          "oklch(95% 0.0023 300.79)"
+        ]
+      },
+      "closing-plum": {
+        "role": "secondary",
+        "displayName": "Closing Plum",
+        "canonical": "#34303c",
+        "tonalRamp": [
+          "oklch(15% 0.0076 300.39)",
+          "oklch(26% 0.0141 300.39)",
+          "oklch(38% 0.0185 300.39)",
+          "oklch(50% 0.0217 300.39)",
+          "oklch(62% 0.0217 300.39)",
+          "oklch(74% 0.0185 300.39)",
+          "oklch(86% 0.0120 300.39)",
+          "oklch(95% 0.0043 300.39)"
+        ]
+      },
+      "closing-gold": {
+        "role": "primary",
+        "displayName": "Closing Gold",
+        "canonical": "#e1b66a",
+        "tonalRamp": [
+          "oklch(15% 0.0374 80.53)",
+          "oklch(26% 0.0694 80.53)",
+          "oklch(38% 0.0908 80.53)",
+          "oklch(50% 0.1068 80.53)",
+          "oklch(62% 0.1068 80.53)",
+          "oklch(74% 0.0908 80.53)",
+          "oklch(86% 0.0587 80.53)",
+          "oklch(95% 0.0214 80.53)"
+        ]
+      },
+      "focus-plum": {
+        "role": "neutral",
+        "displayName": "Focus Plum",
+        "canonical": "#a875ac",
+        "tonalRamp": [
+          "oklch(15% 0.0347 324.17)",
+          "oklch(26% 0.0644 324.17)",
+          "oklch(38% 0.0842 324.17)",
+          "oklch(50% 0.0991 324.17)",
+          "oklch(62% 0.0991 324.17)",
+          "oklch(74% 0.0842 324.17)",
+          "oklch(86% 0.0545 324.17)",
+          "oklch(95% 0.0198 324.17)"
+        ]
+      },
+      "focus-light": {
+        "role": "neutral",
+        "displayName": "Focus Light",
+        "canonical": "#ffe0a1",
+        "tonalRamp": [
+          "oklch(15% 0.0304 84.58)",
+          "oklch(26% 0.0565 84.58)",
+          "oklch(38% 0.0738 84.58)",
+          "oklch(50% 0.0869 84.58)",
+          "oklch(62% 0.0869 84.58)",
+          "oklch(74% 0.0738 84.58)",
+          "oklch(86% 0.0478 84.58)",
+          "oklch(95% 0.0174 84.58)"
+        ]
+      },
+      "sunset-blue": {
+        "role": "secondary",
+        "displayName": "Sunset Blue",
+        "canonical": "#b8bdda",
+        "tonalRamp": [
+          "oklch(15% 0.0144 277.70)",
+          "oklch(26% 0.0268 277.70)",
+          "oklch(38% 0.0350 277.70)",
+          "oklch(50% 0.0412 277.70)",
+          "oklch(62% 0.0412 277.70)",
+          "oklch(74% 0.0350 277.70)",
+          "oklch(86% 0.0227 277.70)",
+          "oklch(95% 0.0082 277.70)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero heading, with whole-element skew and horizontal expansion."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings; consult the documented local sizes."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Feature and explanatory headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Solar and collection prose."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Supporting labels and text actions."
+      },
+      "step-number": {
+        "displayName": "Step Number",
+        "purpose": "Numbered getting-started steps only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "phone-desktop",
+        "value": "0 16px 30px rgba(48, 35, 38, 0.16)",
+        "purpose": "Ambient lift around phone shells."
+      },
+      {
+        "name": "phone-mobile",
+        "value": "0 12px 24px rgba(48, 35, 38, 0.14)",
+        "purpose": "Phone shells at widths of 900px or less."
+      },
+      {
+        "name": "hero-text",
+        "value": "0 2px 8px rgba(16, 16, 20, 0.1)",
+        "purpose": "Subtle text-shadow separating the headline from imagery."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Shared interface easing."
+      },
+      {
+        "name": "action",
+        "value": "0.2s",
+        "purpose": "Download fill and translation."
+      },
+      {
+        "name": "control",
+        "value": "0.25s",
+        "purpose": "Navigation underline, time color, blur, and FAQ icon."
+      },
+      {
+        "name": "image-filter",
+        "value": "0.6s",
+        "purpose": "Inactive hero image filtering."
+      },
+      {
+        "name": "image-transform",
+        "value": "0.9s",
+        "purpose": "Active hero image scaling."
+      },
+      {
+        "name": "playback",
+        "value": "2500ms",
+        "purpose": "Explicitly started frame interval; not a CSS transition."
+      },
+      {
+        "name": "light-dissolve",
+        "value": "750ms",
+        "note": "Mobile panorama and paired phone crossfades; reduced motion skips transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "small-mobile",
+        "value": "480px"
+      },
+      {
+        "name": "stack-and-single-image",
+        "value": "900px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "wide-desktop",
+        "value": "1700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Android Download",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Gold chamfered APK action with dark label; a preview button uses the real action silhouette.",
+      "html": "<button class=\"ds-download\" type=\"button\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m7 5-2-3m12 3 2-3M3 13a9 9 0 0 1 18 0v5H3Z\"/></svg><span>下载 Android 版</span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-download{font-family:\"Noto Sans SC\",sans-serif;position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:20px;padding:17px 27px;min-height:60px;border:0;border-radius:0;background:transparent;color:#252329;font-size:21px;font-weight:500;text-decoration:none;transition:translate .2s var(--ease,cubic-bezier(.22,1,.36,1));}.ds-download:before{content:\"\";position:absolute;inset:0;z-index:-1;background:#e5b24a;clip-path:polygon(4% 0,96% 0,100% 30%,96% 100%,0 100%,0 70%);transition:background .2s var(--ease,cubic-bezier(.22,1,.36,1));}.ds-download:hover{translate:0 -2px}.ds-download:hover:before{background:#f0c56a}.ds-download:active{translate:0 0}.ds-download:focus-visible{outline:3px solid var(--focus-plum,#a875ac);outline-offset:6px;}.ds-download svg:first-child{fill:currentColor;}svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}@media(prefers-reduced-motion:reduce){.ds-download{transition:none!important}}"
+    },
+    {
+      "name": "Closing Download",
+      "kind": "button",
+      "refersTo": "button-closing",
+      "description": "The quieter gold variant used on the final plum field.",
+      "html": "<button class=\"ds-download ds-closing-download\" type=\"button\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m7 5-2-3m12 3 2-3M3 13a9 9 0 0 1 18 0v5H3Z\"/></svg><span>下载 Android 版</span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-download{font-family:\"Noto Sans SC\",sans-serif;position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:20px;padding:17px 27px;min-height:60px;border:0;border-radius:0;background:transparent;color:#252329;font-size:21px;font-weight:500;text-decoration:none;transition:translate .2s var(--ease,cubic-bezier(.22,1,.36,1));}.ds-download:before{content:\"\";position:absolute;inset:0;z-index:-1;background:#e5b24a;clip-path:polygon(4% 0,96% 0,100% 30%,96% 100%,0 100%,0 70%);transition:background .2s var(--ease,cubic-bezier(.22,1,.36,1));}.ds-download:hover{translate:0 -2px}.ds-download:hover:before{background:#f0c56a}.ds-download:active{translate:0 0}.ds-download:focus-visible{outline:3px solid var(--focus-plum,#a875ac);outline-offset:6px;}.ds-download svg:first-child{fill:currentColor;}svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}.ds-closing-download{color:#27232c}.ds-closing-download:before{background:#e1b66a}@media(prefers-reduced-motion:reduce){.ds-closing-download,.ds-download{transition:none!important}}"
+    },
+    {
+      "name": "Playback Text Button",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Underlined native button; live playback wiring stays in app.js.",
+      "html": "<button class=\"ds-text\" type=\"button\" aria-pressed=\"false\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m8 5 11 7-11 7Z\"/></svg><span>播放一天</span></button>",
+      "css": ".ds-text{font-family:\"Noto Sans SC\",sans-serif;display:inline-flex;align-items:center;gap:10px;min-height:44px;border:0;border-bottom:1px solid var(--ink,#272930);padding:10px 0;background:transparent;color:var(--ink,#272930);font-size:14px;cursor:pointer}.ds-text svg{width:18px;height:18px}.ds-text:hover{color:var(--plum,#75557c);border-color:var(--plum,#75557c)}.ds-text:focus-visible{outline:3px solid var(--focus-plum,#a875ac);outline-offset:6px;}svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}@media(prefers-reduced-motion:reduce){.ds-text{transition:none!important}}"
+    },
+    {
+      "name": "Blur Range",
+      "kind": "input",
+      "refersTo": "input-blur",
+      "description": "Native 0–25 slider, default 8, with the source label/output layout.",
+      "html": "<div class=\"ds-blur\"><label for=\"ds-blur-range\">桌面模糊强度 <output for=\"ds-blur-range\">8</output></label><input id=\"ds-blur-range\" type=\"range\" min=\"0\" max=\"25\" value=\"8\" aria-label=\"桌面模糊强度\" /></div>",
+      "css": ".ds-blur{font-family:\"Noto Sans SC\",sans-serif;width:100%;max-width:420px;color:var(--ink,#272930)}.ds-blur label{display:flex;justify-content:space-between;font-size:16px;font-weight:500}.ds-blur output{color:#6a4475;font-variant-numeric:tabular-nums}.ds-blur input{width:100%;height:44px;margin:8px 0;accent-color:var(--plum,#75557c);cursor:ew-resize}.ds-blur input:focus-visible{outline:3px solid var(--focus-plum,#a875ac);outline-offset:6px;}@media(prefers-reduced-motion:reduce){.ds-blur{transition:none!important}}"
+    },
+    {
+      "name": "Masthead Navigation",
+      "kind": "nav",
+      "description": "Inline dark-field navigation with a static current underline.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"主导航\"><a class=\"ds-current\" href=\"#experience\">光影体验</a><a href=\"#start\">使用方式</a></nav>",
+      "css": ".ds-nav{font-family:\"Noto Sans SC\",sans-serif;display:flex;gap:40px;padding:18px 24px;background:var(--charcoal,#24262c);color:#f4f0ee}.ds-nav a{position:relative;padding:18px 0;color:inherit;font-size:16px;text-decoration:none;white-space:nowrap}.ds-nav a:after{content:\"\";position:absolute;left:0;right:0;bottom:6px;height:2px;background:var(--gold,#efbd50);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease,cubic-bezier(.22,1,.36,1))}.ds-nav a:hover:after,.ds-nav .ds-current:after{transform:scaleX(1)}.ds-nav a:focus-visible{outline:3px solid #ffe0a1;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-current,.ds-nav{transition:none!important}}"
+    },
+    {
+      "name": "Archive Tag",
+      "kind": "chip",
+      "refersTo": "archive-tag",
+      "description": "Vertical descriptive label from the ZIP example, not an interactive chip.",
+      "html": "<span class=\"ds-archive-tag\">壁纸集</span>",
+      "css": ".ds-archive-tag{font-family:\"Noto Sans SC\",sans-serif;display:inline-block;font-size:12px;writing-mode:vertical-rl;letter-spacing:.16em;color:#705670}@media(prefers-reduced-motion:reduce){.ds-archive-tag{transition:none!important}}"
+    },
+    {
+      "name": "Feature Row",
+      "kind": "card",
+      "description": "Flat ruled explanation, rather than a raised container.",
+      "html": "<article class=\"ds-feature\"><h3>一套壁纸，一个 ZIP</h3><p>导入与导出整套图片和时间表，用来备份、换机或分享。导入后先检查，再决定何时启用。</p></article>",
+      "css": ".ds-feature{font-family:\"Noto Sans SC\",sans-serif;max-width:520px;padding:28px 0;border-bottom:1px solid #d0c8cc;color:var(--ink,#272930)}.ds-feature h3{margin:0;font-size:20px;font-weight:600}.ds-feature p{margin:9px 0 0;max-width:32em;font-size:15px;line-height:1.9;color:var(--muted,#605b60)}@media(prefers-reduced-motion:reduce){.ds-feature{transition:none!important}}"
+    },
+    {
+      "name": "FAQ Disclosure",
+      "kind": "custom",
+      "description": "Native details/summary with rotating inline plus SVG.",
+      "html": "<details class=\"ds-faq\"><summary>必须使用演示里的壁纸吗？<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14M12 5v14\"/></svg></summary><p>不用。演示只是为了呈现时间和光线变化，你可以添加自己的图片，也可以导入别人分享的壁纸集。</p></details>",
+      "css": ".ds-faq{font-family:\"Noto Sans SC\",sans-serif;max-width:580px;border-block:1px solid #c9c0c7;color:var(--ink,#272930)}.ds-faq summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:23px 0;font-size:17px;font-weight:500;list-style:none;cursor:pointer}.ds-faq summary::-webkit-details-marker{display:none}.ds-faq summary svg{width:19px;height:19px;transition:rotate .25s var(--ease,cubic-bezier(.22,1,.36,1))}.ds-faq[open] summary svg{rotate:45deg}.ds-faq p{margin:0;max-width:38em;padding-bottom:25px;font-size:15px;line-height:1.9;color:var(--muted,#605b60)}.ds-faq summary:focus-visible{outline:3px solid var(--focus-plum,#a875ac);outline-offset:6px;}svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}@media(prefers-reduced-motion:reduce){.ds-faq{transition:none!important}}"
+    },
+    {
+      "name": "Selected Time Button",
+      "kind": "button",
+      "description": "One selected time label from the six-state panorama rail.",
+      "html": "<div class=\"ds-time-field\"><button class=\"ds-time\" type=\"button\" aria-pressed=\"true\">午后 <span>14:00</span></button></div>",
+      "css": ".ds-time-field{padding:14px;background:var(--charcoal,#24262c)}.ds-time{font-family:\"Noto Sans SC\",sans-serif;border:0;padding:4px 8px;min-height:44px;background:transparent;color:var(--gold,#efbd50);font-size:18px;font-weight:700;cursor:pointer;transition:color .25s var(--ease,cubic-bezier(.22,1,.36,1))}.ds-time span{margin-left:7px;font-variant-numeric:tabular-nums}.ds-time:hover{color:#ffe5b2}.ds-time:focus-visible{outline:3px solid #ffe0a1;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-time,.ds-time-field{transition:none!important}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "一间书房，六种光线",
+    "overview": "The page gives a quiet, tactile frame to changing light: charcoal fields hold the artwork and solar explanation; plaster-light paper holds reading and practical steps. Warm gold marks action and the active afternoon, with plum supporting the adjustable blur control and cool blue distinguishing sunset. The visual language is spacious, ruled, and geometric.\n\nThis system documents the finished static product page only. Leo’s book-reaching study artwork is demonstration content, not the product identity. The existing product icon, Android download, user-owned wallpaper sets, and honest device limitations anchor the page. Android application styling remains governed separately by ../design/README.md.",
+    "keyCharacteristics": [
+      "Two-tone charcoal and paper reading fields.",
+      "Whole-heading oblique geometry with crisp Chinese sans lettering.",
+      "Chamfered gold download actions and straight divider rules.",
+      "Real six-state artwork, native controls, and primitive phone silhouettes."
+    ],
+    "rules": [
+      {
+        "name": "The Gold Action Rule",
+        "body": "Use gold for download actions, the time rail, and solar emphasis; the active time label may adopt its frame’s light color. Keep download labels dark.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Heading Voice Rule",
+        "body": "Use Noto Sans SC 600 for h1 and h2, with whole-element skewX(-9deg); the hero adds scaleX(1.08). Keep body copy upright.",
+        "section": "typography"
+      },
+      {
+        "name": "The Material Depth Rule",
+        "body": "Reserve ambient shadows for the phone demonstrations and subtle hero text separation; reading sections use texture, tone, and rules.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the charcoal/paper alternation and generous section spacing.",
+      "Do keep real buttons, native range inputs, details/summary, visible keyboard focus, and the skip link.",
+      "Do show all six image slices on desktop and one active image at widths of 900px or less.",
+      "Do keep the wallpaper and blur demonstrations synchronized while preserving clear lock-screen detail.",
+      "Do retain reduced-motion CSS, disable default autoplay for that preference, and expose pause controls for the normal automatic cycle."
+    ],
+    "donts": [
+      "Don't turn Leo’s demonstration artwork into the product’s identity.",
+      "Don't replace live page controls or text with baked screenshots.",
+      "Don't invent ratings, pricing, license terms, device guarantees, or automatic verification receipts.",
+      "Don't apply this page’s heading transforms or marketing palette as Android application rules."
+    ]
+  }
+}

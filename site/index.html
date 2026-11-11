@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#24262c" />
+    <meta
+      name="description"
+      content="壁纸时移：按时间自动切换 Android 锁屏和桌面壁纸。跟随日出日落，自定义壁纸集，让你喜欢的画面拥有一天的节奏。"
+    />
+    <title>壁纸时移 · 让壁纸，跟着一天走。</title>
+    <link rel="icon" href="assets/icon.png" type="image/png" />
+    <link
+      rel="preload"
+      href="assets/fonts/noto-sc-0.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/biz-udp-gothic.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <svg
+      class="icon-definitions"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="arrow" viewBox="0 0 24 24">
+          <path d="M4 12h15m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="external" viewBox="0 0 24 24">
+          <path d="M13 5h6v6M19 5 9 15M10 5H5v14h14v-5" />
+        </symbol>
+        <symbol id="android" viewBox="0 0 24 24">
+          <path d="m7 5-2-3m12 3 2-3M3 13a9 9 0 0 1 18 0v5H3Z" />
+          <circle cx="8" cy="11" r=".65" />
+          <circle cx="16" cy="11" r=".65" />
+        </symbol>
+        <symbol id="lock" viewBox="0 0 24 24">
+          <rect x="5" y="10" width="14" height="11" rx="2" />
+          <path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2" />
+        </symbol>
+        <symbol id="layers" viewBox="0 0 24 24">
+          <path d="m3 8 9-5 9 5-9 5Zm0 5 9 5 9-5M3 18l9 5 9-5" />
+        </symbol>
+        <symbol id="play" viewBox="0 0 24 24">
+          <path d="m8 5 11 7-11 7Z" />
+        </symbol>
+        <symbol id="pause" viewBox="0 0 24 24">
+          <path d="M8 5v14M16 5v14" />
+        </symbol>
+        <symbol id="sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"
+          />
+        </symbol>
+        <symbol id="moon" viewBox="0 0 24 24">
+          <path d="M20.5 14A9 9 0 0 1 10 3.5 9.2 9.2 0 1 0 20.5 14Z" />
+        </symbol>
+        <symbol id="file" viewBox="0 0 24 24">
+          <path d="M6 2h8l5 5v15H6Zm8 0v6h5M10 5v2m0 2v2m0 2v2m-1 2h3v3H9Z" />
+        </symbol>
+        <symbol id="plus" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5v14" />
+        </symbol>
+      </defs>
+    </svg>
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="壁纸时移首页"
+        ><img
+          src="assets/plates/brand-icon.png"
+          width="192"
+          height="192"
+          alt=""
+        /><span>壁纸时移</span></a
+      >
+      <nav aria-label="主导航">
+        <a class="nav-link is-current" href="#experience">光影体验</a
+        ><a class="nav-link" href="#start">使用方式</a
+        ><a
+          class="nav-link github"
+          href="https://github.com/SandyKidYao/wallpaper-shift"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub <svg><use href="#external" /></svg
+        ></a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="panorama" aria-label="同一组壁纸的六时段光线演示">
+          <div class="slice" data-state="0">
+            <picture
+              ><source srcset="assets/leo/01-dawn.webp" type="image/webp" />
+              <img
+                src="assets/plates/wallpaper-dawn.png"
+                width="850"
+                height="1850"
+                alt="黎明，书房笼罩在冷紫色微光中"
+                fetchpriority="high"
+            /></picture>
+          </div>
+          <div class="slice" data-state="1">
+            <picture
+              ><source srcset="assets/leo/02-morning.webp" type="image/webp" />
+              <img
+                src="assets/plates/wallpaper-morning.png"
+                width="850"
+                height="1850"
+                alt="早晨，粉金色晨光照进书房"
+            /></picture>
+          </div>
+          <div class="slice" data-state="2">
+            <picture
+              ><source srcset="assets/leo/03-noon.webp" type="image/webp" />
+              <img
+                src="assets/plates/wallpaper-noon.png"
+                width="850"
+                height="1850"
+                alt="正午，清透的日光照亮书架"
+            /></picture>
+          </div>
+          <div class="slice is-active" data-state="3">
+            <picture
+              ><source
+                srcset="assets/leo/04-afternoon.webp"
+                type="image/webp" />
+              <img
+                src="assets/plates/wallpaper-afternoon.png"
+                width="850"
+                height="1850"
+                alt="午后，暖金色斜光落在地板上"
+            /></picture>
+          </div>
+          <div class="slice" data-state="4">
+            <picture
+              ><source srcset="assets/leo/05-night.webp" type="image/webp" />
+              <img
+                src="assets/plates/wallpaper-night.png"
+                width="850"
+                height="1850"
+                alt="日落后，冷蓝色书房亮起温暖烛光"
+            /></picture>
+          </div>
+          <div class="slice" data-state="5">
+            <picture
+              ><source
+                srcset="assets/leo/06-deepnight.webp"
+                type="image/webp" />
+              <img
+                src="assets/plates/wallpaper-deepnight.png"
+                width="850"
+                height="1850"
+                alt="深夜，微弱的冷蓝月光映着书房"
+            /></picture>
+          </div>
+        </div>
+        <div class="hero-copy">
+          <h1 id="hero-title">让壁纸，<span>跟着一天走。</span></h1>
+          <p>按时间自动切换锁屏与桌面壁纸。</p>
+        </div>
+        <a
+          class="download-button hero-download"
+          href="downloads/wallpaper-shift-android.apk"
+          download="wallpaper-shift-android.apk"
+          ><svg class="android-icon"><use href="#android" /></svg
+          ><span>下载 Android 版</span><svg><use href="#arrow" /></svg
+        ></a>
+        <button
+          class="hero-play"
+          id="hero-play-toggle"
+          type="button"
+          aria-pressed="false"
+          aria-label="播放自动切换"
+          title="播放自动切换"
+          hidden
+        >
+          <svg aria-hidden="true"><use href="#play" /></svg
+          ><span class="sr-only">播放自动切换</span>
+        </button>
+        <div class="timeline" id="experience">
+          <div class="time-labels" role="group" aria-label="选择演示时段">
+            <button
+              type="button"
+              data-time="0"
+              style="--position: 0%"
+              aria-pressed="false"
+            >
+              黎明 <span>04:00</span>
+            </button>
+            <button
+              type="button"
+              data-time="1"
+              style="--position: 20%"
+              aria-pressed="false"
+            >
+              早晨 <span>日出</span>
+            </button>
+            <button
+              type="button"
+              data-time="2"
+              style="--position: 40%"
+              aria-pressed="false"
+            >
+              正午 <span>11:00</span>
+            </button>
+            <button
+              type="button"
+              data-time="3"
+              style="--position: 60%"
+              aria-pressed="true"
+            >
+              午后 <span>14:00</span>
+            </button>
+            <button
+              type="button"
+              data-time="4"
+              style="--position: 80%"
+              aria-pressed="false"
+            >
+              夜晚 <span>日落</span>
+            </button>
+            <button
+              type="button"
+              data-time="5"
+              style="--position: 100%"
+              aria-pressed="false"
+            >
+              深夜 <span>23:00</span>
+            </button>
+          </div>
+          <div class="rail-ticks" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <input
+            class="time-range"
+            id="time-range"
+            type="range"
+            min="0"
+            max="5"
+            value="3"
+            step="1"
+            aria-label="壁纸演示时间"
+            aria-valuetext="午后，14:00"
+            style="--progress: 60%"
+          />
+        </div>
+        <output class="sr-only" id="time-announcement" aria-live="polite"
+          >正在预览午后，14:00。</output
+        >
+      </section>
+      <section
+        class="comparison paper-section"
+        id="effects"
+        aria-labelledby="effects-title"
+      >
+        <div class="comparison-copy">
+          <h2 id="effects-title">锁屏清晰 · 桌面柔和</h2>
+          <p>
+            锁屏保留画面细节与光影；桌面可调节模糊，让图标和内容更容易辨认。
+          </p>
+          <div class="blur-controls">
+            <label for="blur-range"
+              >桌面模糊强度
+              <output id="blur-value" for="blur-range">8</output></label
+            ><input
+              id="blur-range"
+              type="range"
+              min="0"
+              max="25"
+              value="8"
+              aria-label="桌面模糊强度"
+            />
+            <p class="small-note">
+              拖动滑块，比较同一张壁纸的两种效果。<br />此处为效果演示，不会修改手机设置。
+            </p>
+          </div>
+        </div>
+        <div class="device-pair">
+          <figure class="device-figure">
+            <div class="device">
+              <div class="device-screen">
+                <picture class="screen-picture"
+                  ><source
+                    class="preview-source"
+                    srcset="assets/leo/04-afternoon.webp"
+                    type="image/webp" />
+                  <img
+                    class="preview-image"
+                    src="assets/plates/lock-wallpaper.png"
+                    width="850"
+                    height="1850"
+                    alt="清晰锁屏壁纸效果"
+                    loading="lazy" /></picture
+                ><span class="camera-hole" aria-hidden="true"></span>
+                <div class="lock-time" aria-hidden="true">
+                  <span class="preview-clock">14:00</span
+                  ><small>11月11日 周三</small>
+                </div>
+                <span class="gesture-bar" aria-hidden="true"></span>
+              </div>
+            </div>
+            <figcaption>
+              <svg><use href="#lock" /></svg>锁屏 · 清晰
+            </figcaption>
+          </figure>
+          <figure class="device-figure">
+            <div class="device">
+              <div class="device-screen home-screen">
+                <picture class="screen-picture"
+                  ><source
+                    class="preview-source"
+                    srcset="assets/leo/04-afternoon.webp"
+                    type="image/webp" />
+                  <img
+                    class="preview-image"
+                    id="blur-image"
+                    src="assets/plates/home-wallpaper.png"
+                    width="850"
+                    height="1850"
+                    alt="桌面模糊壁纸效果"
+                    loading="lazy" /></picture
+                ><span class="camera-hole" aria-hidden="true"></span>
+                <div class="home-dock" aria-hidden="true">
+                  <span
+                    ><svg viewBox="0 0 24 24">
+                      <path
+                        d="M6 3 3 6c1 7 8 14 15 15l3-3-5-4-3 2-5-5 2-3Z"
+                      /></svg></span
+                  ><span
+                    ><svg viewBox="0 0 24 24">
+                      <path d="M3 4h18v13H9l-6 4Zm4 5h10M7 12h7" /></svg></span
+                  ><span
+                    ><svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="8" />
+                      <path
+                        d="M4 12h16M12 4c5 4 5 12 0 16-5-4-5-12 0-16"
+                      /></svg></span
+                  ><span
+                    ><svg viewBox="0 0 24 24">
+                      <path d="M3 7h5l2-3h4l2 3h5v14H3Z" />
+                      <circle cx="12" cy="13" r="4" /></svg
+                  ></span>
+                </div>
+                <span class="gesture-bar" aria-hidden="true"></span>
+              </div>
+            </div>
+            <figcaption>
+              <svg><use href="#layers" /></svg>桌面 · 可调模糊
+            </figcaption>
+          </figure>
+        </div>
+        <div class="demo-toolbar">
+          <p>
+            同一组图片，不同时间的光线。<span
+              >你可以换成自己喜欢的任何一组。</span
+            >
+          </p>
+          <button
+            class="text-button"
+            id="play-toggle"
+            type="button"
+            aria-pressed="false"
+          >
+            <svg><use href="#play" /></svg><span>播放一天</span>
+          </button>
+        </div>
+      </section>
+      <section class="solar-section" aria-labelledby="solar-title">
+        <div class="solar-copy">
+          <h2 id="solar-title">跟着日出醒来，<br />随着日落入夜。</h2>
+          <p>
+            把早晨和夜晚交给设备提供的日出日落时间。季节在变，壁纸也能跟着变。
+          </p>
+          <p class="quiet">
+            其余时段按你的习惯安排。每张图实际采用的切换时间，都能在应用里查看。
+          </p>
+        </div>
+        <div class="solar-ranges">
+          <div class="solar-row">
+            <h3>
+              <svg><use href="#sun" /></svg>日出安全范围
+            </h3>
+            <div class="solar-scale sunrise-scale">
+              <span>04:30</span>
+              <div class="scale-line"><i></i><i></i></div>
+              <span>09:30</span>
+            </div>
+            <p>早于下限或晚于上限，采用最近的安全边界。</p>
+          </div>
+          <div class="solar-row">
+            <h3>
+              <svg><use href="#moon" /></svg>日落安全范围
+            </h3>
+            <div class="solar-scale sunset-scale">
+              <span>15:30</span>
+              <div class="scale-line"><i></i><i></i></div>
+              <span>22:00</span>
+            </div>
+            <p>设备未提供有效时间，使用你保存的固定时间。</p>
+          </div>
+          <p class="compatibility">
+            跟随能力因设备而异。vivo 可读取系统日出日落；Android 11
+            及以上也可使用深色模式的自定义时间。应用会显示实际采用的时间和原因。
+          </p>
+        </div>
+      </section>
+      <section
+        class="collections paper-section"
+        aria-labelledby="collections-title"
+      >
+        <div class="collections-intro">
+          <h2 id="collections-title">你的图片，<br />你的一天。</h2>
+          <p>
+            六个时段只是开始。风景、插画，或你喜欢的一组画面，都可以成为自己的壁纸集。
+          </p>
+          <a class="inline-link" href="#start"
+            >看看如何开始 <svg><use href="#arrow" /></svg
+          ></a>
+        </div>
+        <div class="collections-details">
+          <div class="archive-example" aria-label="示例 ZIP 壁纸集">
+            <svg class="file-icon"><use href="#file" /></svg>
+            <div>
+              <strong>我的一天.zip</strong><span>图片 + 时间表 + 模糊设置</span>
+            </div>
+            <span class="archive-tag">壁纸集</span>
+          </div>
+          <div class="feature-line">
+            <h3>每张图，都有自己的时间</h3>
+            <p>
+              设置开始时间，让画面一直显示到下一张开始。凌晨自然接上前一天的最后一张。
+            </p>
+          </div>
+          <div class="feature-line">
+            <h3>一套壁纸，一个 ZIP</h3>
+            <p>
+              导入与导出整套图片和时间表，用来备份、换机或分享。导入后先检查，再决定何时启用。
+            </p>
+          </div>
+          <div class="feature-line">
+            <h3>选择一套，按时切换</h3>
+            <p>
+              保留多个壁纸集，同一时间只启用一个。每套都能单独设置桌面模糊强度。
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="getting-started paper-section"
+        id="start"
+        aria-labelledby="start-title"
+      >
+        <h2 id="start-title">把下一张壁纸，<br />交给时间。</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-number">1</span>
+            <div>
+              <h3>安装应用</h3>
+              <p>下载 Android 安装包，<br />打开壁纸时移。</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">2</span>
+            <div>
+              <h3>准备壁纸集</h3>
+              <p>添加自己的图片或导入 ZIP，<br />检查每张图的开始时间。</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">3</span>
+            <div>
+              <h3>启用并完成设置</h3>
+              <p>启用一套壁纸，按应用内引导<br />完成权限与后台设置。</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section class="faq paper-section" aria-labelledby="faq-title">
+        <h2 id="faq-title">开始之前，你可能想知道。</h2>
+        <div class="faq-list">
+          <details>
+            <summary>
+              支持哪些手机？<svg><use href="#plus" /></svg>
+            </summary>
+            <p>
+              当前提供 Android 版，支持 Android 9
+              及以上。日出日落、相册和后台运行能力会因系统与厂商而异。
+            </p>
+          </details>
+          <details>
+            <summary>
+              必须使用演示里的壁纸吗？<svg><use href="#plus" /></svg>
+            </summary>
+            <p>
+              不用。演示只是为了呈现时间和光线变化，你可以添加自己的图片，也可以导入别人分享的壁纸集。
+            </p>
+          </details>
+          <details>
+            <summary>
+              需要一直打开应用吗？<svg><use href="#plus" /></svg>
+            </summary>
+            <p>
+              启用后由系统定时触发切换。准时切换仍受闹钟权限及厂商省电影响，请按应用内引导允许所需权限与后台运行。
+            </p>
+          </details>
+          <details>
+            <summary>
+              读不到日出日落时间怎么办？<svg><use href="#plus" /></svg>
+            </summary>
+            <p>
+              每张跟随图片都保留一个固定回退时间。设备未提供有效时间时会使用它，应用里会显示实际采用的切换时间和原因。
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="closing" aria-labelledby="closing-title">
+        <div>
+          <h2 id="closing-title">为你的壁纸，<br />安排一天的节奏。</h2>
+          <p>把你喜欢的画面，交给时间。</p>
+        </div>
+        <div class="closing-action">
+          <a
+            class="download-button"
+            href="downloads/wallpaper-shift-android.apk"
+            download="wallpaper-shift-android.apk"
+            ><svg class="android-icon"><use href="#android" /></svg
+            ><span>下载 Android 版</span><svg><use href="#arrow" /></svg
+          ></a>
+          <p>Android 9 及以上 · APK 安装包 · 0.1.0</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="brand footer-brand" href="#top"
+        ><img src="assets/icon.png" width="192" height="192" alt="" /><span
+          >壁纸时移 <small>Wallpaper Shift</small></span
+        ></a
+      >
+      <p>演示壁纸：Leo · 书房一日光影</p>
+      <a
+        class="inline-link"
+        href="https://github.com/SandyKidYao/wallpaper-shift"
+        target="_blank"
+        rel="noopener noreferrer"
+        >在 GitHub 查看源代码 <svg><use href="#external" /></svg
+      ></a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+node_modules
+.openai/
+dist/
+.impeccable/build/
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/questions/
+.impeccable/references/
+.impeccable/artwork-feedback.json
+.impeccable/download-source.json
+.impeccable/content.json
+.impeccable/direction-contract.md
+.impeccable/validation-route.md
+__pycache__/
