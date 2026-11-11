@@ -27,6 +27,16 @@ wallpaper-shift/
 - **做新平台、改界面**：[design/README.md](design/README.md)，包括产品概念、图标、颜色、组件、行为规则和文案。机器可读的数值在 [design/tokens.json](design/tokens.json)。
 - **构建 Android 版、了解实现与厂商限制**：[android/README.md](android/README.md)。
 
+## 用 Agent 根据参考图制作壁纸包
+
+仓库提供 [wallpaper-shift-pack SKILL](skills/wallpaper-shift-pack/SKILL.md)：让支持图片生成/编辑的 Agent 读取参考图，制作同一场景的全天壁纸，自动生成时间表，并交付可直接导入的 ZIP。默认六张（黎明、早晨、正午、午后、日落、夜晚），可自行指定张数、时间和屏幕尺寸。图片处理及打包需要 Python 3.10+ 和 Pillow。
+
+将整个 `skills/wallpaper-shift-pack/` 文件夹复制到 Agent 的技能目录（例如 Codex 的 `~/.codex/skills/`），或让 Agent 直接读取仓库里的 `SKILL.md` 并使用同目录脚本。附上参考图后可以这样说：
+
+> 使用 $wallpaper-shift-pack，参考这张图制作一套同一场景从黎明到夜晚的手机壁纸，打包成能导入壁纸时移的 ZIP。
+
+收到成品 ZIP 后，保存到手机 → APP 首页「导入」→ 选择 ZIP → 检查时间表并启用。SKILL 文件夹用于 Agent，生成的壁纸 ZIP 用于 APP，两者用途不同。
+
 ## 约定
 
 - `tmp/` 用来放临时的开发文件（示例素材原图、界面评审页等），已写进 `.gitignore`，不会被提交。需要长期保留、被构建或文档引用的东西，放进 `design/` 或 `shared/`。

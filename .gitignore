@@ -8,6 +8,7 @@
 .DS_Store
 .idea/
 *.iml
+__pycache__/
 
 # Android / Gradle (any platform directory)
 .gradle/

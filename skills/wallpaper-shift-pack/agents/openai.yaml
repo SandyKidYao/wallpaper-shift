@@ -1,0 +1,4 @@
+interface:
+  display_name: "壁纸时移 · 参考图生成壁纸包"
+  short_description: "根据参考图制作全天一致场景壁纸，自动生成时间表并打包为可导入的 ZIP"
+  default_prompt: "使用 $wallpaper-shift-pack，根据我提供的参考图生成一套全天壁纸，并打包成能直接导入壁纸时移的 ZIP。"
