@@ -16,18 +16,13 @@ const val MINUTES_PER_DAY = 24 * 60
 object DaySchedule {
 
     /**
-     * [items] with theme-anchored starts replaced by the system's switch times, re-sorted by start.
+     * [items] with theme-anchored starts replaced by safely bounded system switch times, re-sorted by start.
      * An anchored item whose system time is unknown keeps its own [WallpaperItem.startMinute].
      */
     fun resolve(items: List<WallpaperItem>, theme: ThemeTimes): List<WallpaperItem> {
         if (items.none { it.anchor != ThemeAnchor.NONE }) return items
         return items.map { item ->
-            val minute = when (item.anchor) {
-                ThemeAnchor.NONE -> null
-                ThemeAnchor.DARK_START -> theme.darkStart
-                ThemeAnchor.LIGHT_START -> theme.lightStart
-            }
-            if (minute == null) item else item.copy(startMinute = minute)
+            item.copy(startMinute = AnchorTiming.startMinute(item, theme))
         }.sortedBy { it.startMinute }
     }
 

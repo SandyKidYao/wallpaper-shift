@@ -29,7 +29,7 @@ wallpaper-shift/
 
 ## 用 Agent 根据参考图制作壁纸包
 
-仓库提供 [wallpaper-shift-pack SKILL](skills/wallpaper-shift-pack/SKILL.md)：让支持图片生成/编辑的 Agent 读取参考图，先与用户确认生成思路、构图留白和文字等画面要求，再制作图片和时间表，展示整套成图供用户验收，通过后交付可直接导入的 ZIP。推荐方案是同一场景六张（黎明、早晨、正午、午后、日落、夜晚），也支持其他创作思路，可指定张数、时间和屏幕尺寸。图片处理及打包需要 Python 3.10+ 和 Pillow。
+仓库提供 [wallpaper-shift-pack SKILL](skills/wallpaper-shift-pack/SKILL.md)：让支持图片生成/编辑的 Agent 读取参考图，先与用户确认生成思路、构图留白和文字等画面要求，再制作图片和时间表，展示整套成图供用户验收，通过后交付可直接导入的 ZIP。推荐方案是同一场景六张（黎明、早晨、正午、午后、夜晚、深夜；早晨跟随日出，夜晚跟随日落，并受安全时间范围限制），也支持其他创作思路，可指定张数、时间和屏幕尺寸。图片处理及打包需要 Python 3.10+ 和 Pillow。
 
 将整个 `skills/wallpaper-shift-pack/` 文件夹复制到 Agent 的技能目录（例如 Codex 的 `~/.codex/skills/`），或让 Agent 直接读取仓库里的 `SKILL.md` 并使用同目录脚本。附上参考图后可以这样说：
 

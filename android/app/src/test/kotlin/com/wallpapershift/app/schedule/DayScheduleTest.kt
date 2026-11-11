@@ -13,7 +13,7 @@ import java.time.ZonedDateTime
 class DayScheduleTest {
     private val shanghai = ZoneId.of("Asia/Shanghai")
 
-    /** The demo set: dawn 05:00, morning 07:30, noon 11:00, afternoon 14:00, sunset 17:30, night 19:30. */
+    /** A legacy fixed-time set, retained to cover schedules saved by earlier versions. */
     private val day = listOf(
         item("dawn", 5, 0), item("morning", 7, 30), item("noon", 11, 0),
         item("afternoon", 14, 0), item("sunset", 17, 30), item("night", 19, 30),

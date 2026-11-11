@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 /**
- * The bundled "one day" sample: the app logo on six gradients, from dawn to night. The pictures ship
+ * The bundled "one day" sample: the app logo on six gradients, from dawn to deep night. The pictures ship
  * in every build (assets/demo, from the repo's shared/demo-assets). File names end in the time of day
  * ("sky-01-dawn.jpg"), which picks the picture's start time.
  */
@@ -125,12 +125,12 @@ class DemoSet(private val context: Context, private val library: WallpaperLibrar
         /** Morning starts when the phone turns light, night when it turns dark; the natural times are the fallback. */
         private val THEME_ANCHORS = mapOf("morning" to ThemeAnchor.LIGHT_START, "night" to ThemeAnchor.DARK_START)
         private val NATURAL_STARTS = mapOf(
-            "dawn" to 5 * 60,
-            "morning" to 7 * 60 + 30,
+            "dawn" to 4 * 60,
+            "morning" to 6 * 60,
             "noon" to 11 * 60,
             "afternoon" to 14 * 60,
-            "sunset" to 17 * 60 + 30,
-            "night" to 19 * 60 + 30,
+            "night" to 18 * 60,
+            "deepnight" to 23 * 60,
         )
     }
 }

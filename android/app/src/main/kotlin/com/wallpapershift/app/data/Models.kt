@@ -11,7 +11,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class WallpaperItem(
     val id: String,
-    /** Fixed start time. With an [anchor], the system's theme switch time wins and this is the fallback. */
+    /** Fixed start time. With an [anchor], the safely bounded system theme time wins and this is the fallback. */
     val startMinute: Int,
     val label: String = "",
     val anchor: ThemeAnchor = ThemeAnchor.NONE,

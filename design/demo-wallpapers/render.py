@@ -4,7 +4,7 @@
 The phone itself is the logo's frame: each wallpaper is the icon's inner mark (half sun, horizon,
 reflection; see ../icon/icon.svg) drawn large and white in the lower half of the screen, on a
 top-to-bottom three-stop gradient like the icon's own background. Below the horizon the gradient is
-a little darker (the sea), and the sun has a soft glow. Dawn uses the icon's gradient unchanged; the
+a little darker (the sea), and the sun has a soft glow. Dawn is dim, night begins at sunset, and deep night is darker; the
 other five follow the light through the day. The sky above the sun stays empty for the lock-screen clock.
 
     python3 design/demo-wallpapers/render.py            # → shared/demo-assets/demo/sky-0N-*.jpg
@@ -30,12 +30,12 @@ JPEG_QUALITY = 92
 
 # Name → (top, middle, bottom). Middle sits at 50%, as in the icon.
 GRADIENTS = {
-    "01-dawn": ("#232B66", "#7B4F92", "#F4A261"),
+    "01-dawn": ("#111936", "#353C65", "#82718F"),
     "02-morning": ("#4B6CC1", "#D99BB5", "#FCE1A6"),
     "03-noon": ("#1259C3", "#3A93E6", "#A3DAF5"),
     "04-afternoon": ("#245F9E", "#5C9FC2", "#F2CB82"),
-    "05-sunset": ("#3A2470", "#C2477A", "#F5993E"),
-    "06-night": ("#090E29", "#1C2357", "#48316F"),
+    "05-night": ("#151B40", "#393759", "#85617A"),
+    "06-deepnight": ("#050918", "#111831", "#252542"),
 }
 PREFIX = "sky-"
 

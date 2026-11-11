@@ -68,6 +68,7 @@ import com.wallpapershift.app.data.SetExporter
 import com.wallpapershift.app.data.ThemeAnchor
 import com.wallpapershift.app.data.WallpaperItem
 import com.wallpapershift.app.data.WallpaperSet
+import com.wallpapershift.app.schedule.AnchorTiming
 import com.wallpapershift.app.schedule.DaySchedule
 import com.wallpapershift.app.schedule.ThemeTimes
 import com.wallpapershift.app.ui.common.DayTimeline
@@ -356,14 +357,23 @@ private fun ItemRow(
     }
 }
 
-/** Says what an anchored item follows, and when the phone gave no time to follow, which fixed time it uses instead. */
+/** The row already carries the resolved start; explain the source, bounds and fallback separately. */
 private fun anchorNote(item: WallpaperItem, theme: ThemeTimes): String? {
-    val (name, known) = when (item.anchor) {
+    val name = when (item.anchor) {
         ThemeAnchor.NONE -> return null
-        ThemeAnchor.DARK_START -> "日落" to (theme.darkStart != null)
-        ThemeAnchor.LIGHT_START -> "日出" to (theme.lightStart != null)
+        ThemeAnchor.DARK_START -> "日落"
+        ThemeAnchor.LIGHT_START -> "日出"
     }
-    return if (known) "跟随$name" else "跟随$name · 读不到${name}时间，暂按 ${DaySchedule.format(item.startMinute)}"
+    val range = AnchorTiming.safeRange(item.anchor) ?: return null
+    val source = AnchorTiming.sourceMinute(item.anchor, theme)
+    val used = DaySchedule.format(item.startMinute)
+    val bounds = "最早 ${DaySchedule.format(range.first)}，最晚 ${DaySchedule.format(range.last)}"
+    return when {
+        source == null -> "跟随$name · $bounds\n读不到${name}时间，暂按 $used 切换"
+        source < range.first -> "跟随$name · $bounds\n$name ${DaySchedule.format(source)}，按安全下限 $used"
+        source > range.last -> "跟随$name · $bounds\n$name ${DaySchedule.format(source)}，按安全上限 $used"
+        else -> "跟随$name · $bounds\n按 $used 切换"
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

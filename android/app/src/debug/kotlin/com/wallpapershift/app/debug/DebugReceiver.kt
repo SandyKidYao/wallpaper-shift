@@ -12,7 +12,7 @@ import java.time.LocalTime
 /**
  * adb hooks for on-device testing (debug builds only):
  *
- *   # Demo set with natural times (dawn 05:00 … night 19:30)
+ *   # Demo set with natural times (dawn 04:00, sunrise morning, sunset night, deep night 23:00)
  *   adb shell am broadcast -n com.wallpapershift.app.debug/com.wallpapershift.app.debug.DebugReceiver -a DEMO
  *   # Compressed day: first picture starts 1 min from now, then one every 2 min
  *   adb shell am broadcast -n ...DebugReceiver -a DEMO --ei startInMin 1 --ei everyMin 2

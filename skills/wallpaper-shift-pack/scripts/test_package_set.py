@@ -24,8 +24,8 @@ class PackageSetTest(unittest.TestCase):
             "name": "海边的一天", "blur": 10,
             "items": [{"file": "source.png", "start": start, "label": label}
                       for start, label in zip(
-                          ["05:00", "07:30", "11:00", "14:00", "17:30", "19:30"],
-                          ["黎明", "早晨", "正午", "午后", "日落", "夜晚"])],
+                          ["04:00", "06:00", "11:00", "14:00", "18:00", "23:00"],
+                          ["黎明", "早晨", "正午", "午后", "夜晚", "深夜"])],
         }
         self.plan_path = self.root / "plan.json"
         self.output = self.root / "海边的一天.zip"
@@ -44,14 +44,16 @@ class PackageSetTest(unittest.TestCase):
                 archive.writestr(name, data)
 
     def test_six_frame_package_preserves_schedule_and_decodes(self):
-        self.plan["items"][0]["anchor"] = "light-start"
+        self.plan["items"][1]["anchor"] = "light-start"
+        self.plan["items"][4]["anchor"] = "dark-start"
         result = self.make()
         self.assertEqual((6, [90, 195], "海边的一天"),
                          (result["images"], result["size"], result["name"]))
         with zipfile.ZipFile(self.output) as archive:
             manifest = json.loads(archive.read("manifest.json"))
             self.assertEqual("wallpaper-shift.set", manifest["format"])
-            self.assertEqual(self.plan["items"][0]["anchor"], manifest["items"][0]["anchor"])
+            self.assertEqual([item.get("anchor") for item in self.plan["items"]],
+                             [item.get("anchor") for item in manifest["items"]])
             self.assertEqual([item["start"] for item in self.plan["items"]],
                              [item["start"] for item in manifest["items"]])
             self.assertEqual([item["label"] for item in self.plan["items"]],
@@ -81,7 +83,7 @@ class PackageSetTest(unittest.TestCase):
             lambda p: p.update(blur=True),
             lambda p: p["items"][0].update(start="24:00"),
             lambda p: p["items"][0].update(start="7:30"),
-            lambda p: p["items"][0].update(start="07:30"),
+            lambda p: p["items"][0].update(start="06:00"),
             lambda p: p["items"][0].update(anchor="sunrise"),
             lambda p: p["items"][0].update(file="missing.png"),
         ]
