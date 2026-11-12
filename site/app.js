@@ -104,9 +104,6 @@
     );
     timeline.style.setProperty("--rail-y", `${railY}px`);
     timeline.style.setProperty("--rail-fraction", String(selected / 5));
-    const compact = window.matchMedia("(max-width: 900px)").matches;
-    heroPlayButton.style.left = `${compact ? hero.clientWidth - 66 : Math.max(12, timeline.offsetLeft - 64)}px`;
-    heroPlayButton.style.top = `${compact ? 24 : timeline.offsetTop + railY - 22}px`;
   }
 
   async function changePreviews(frame) {
@@ -189,7 +186,9 @@
     const label = playing ? "暂停自动切换" : "播放自动切换";
     heroPlayButton.setAttribute("aria-label", label);
     heroPlayButton.title = label;
-    heroPlayButton.querySelector("span").textContent = label;
+    heroPlayButton.querySelector("span").textContent = playing
+      ? "暂停"
+      : "播放一天";
   }
 
   function syncPlayback() {

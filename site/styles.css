@@ -1765,3 +1765,103 @@ h2 {
   width: fit-content;
   max-width: 100%;
 }
+
+/* Hero demo: one wallpaper at a time on every viewport (desktop used to show all six at once). */
+.panorama {
+  display: block;
+  background: radial-gradient(
+    ellipse 55% 85% at 50% 42%,
+    color-mix(in srgb, var(--active-color) 38%, var(--charcoal)) 0%,
+    var(--charcoal) 100%
+  );
+}
+.panorama .slice {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  transition:
+    opacity 750ms ease,
+    visibility 0s 750ms;
+}
+.panorama .slice.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  transition:
+    opacity 750ms ease,
+    visibility 0s;
+}
+.panorama .slice picture {
+  display: flex;
+  justify-content: center;
+}
+.panorama .slice img {
+  width: auto;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+.hero.has-interacted .slice:not(.is-active) img {
+  filter: none;
+}
+
+/* Play/pause: a labelled pill docked to the start of the timeline, in flow with the controls. */
+.hero-play {
+  left: 9.7%;
+  bottom: calc(5.84vw + 10px);
+  top: auto;
+  width: auto;
+  height: 40px;
+  padding: 0 16px 0 12px;
+  grid-auto-flow: column;
+  gap: 8px;
+  border-radius: 20px;
+  color: #f7f3ed;
+  background: rgba(36, 38, 44, 0.72);
+  backdrop-filter: blur(6px);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  z-index: 6;
+}
+.hero-play svg {
+  width: 16px;
+  height: 16px;
+  color: var(--active-color);
+}
+@media (max-width: 900px) {
+  .hero-play {
+    left: 8%;
+    bottom: 94px;
+  }
+  .hero-download {
+    bottom: 146px;
+  }
+}
+
+/* Desktop composition: copy and download on the left, the wallpaper on the right. */
+@media (min-width: 901px) {
+  .panorama {
+    background: radial-gradient(
+      ellipse 42% 85% at 68% 42%,
+      color-mix(in srgb, var(--active-color) 38%, var(--charcoal)) 0%,
+      var(--charcoal) 100%
+    );
+  }
+  .panorama .slice picture {
+    justify-content: flex-end;
+    padding-right: 13vw;
+    box-sizing: border-box;
+  }
+  .hero-download {
+    left: 4.55vw;
+    bottom: auto;
+    top: 17.5vw;
+    transform: none;
+  }
+}
